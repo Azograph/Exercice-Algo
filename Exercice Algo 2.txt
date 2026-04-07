@@ -1,0 +1,74 @@
+• Exercice 1 
+Ecrire un algorithme en pseudo-code pour :
+Entrée : âge
+Tester si la personne est majeure
+Afficher un message adapté selon qu'elle est majeur ou non
+
+1. Créer une variable Age 
+2. Demander Age
+3. Age <- Age entrée
+4. Si Age < 18 alors afficher "Personne mineur" 
+Sinon afficher "Personne majeur" 
+
+• Exercice 2 
+Ecrire un algorithme en pseudo-code pour :
+Entrée : mot de passe saisi
+Comparer avec un mot de passe attendu
+Afficher succès ou erreur
+Variante :
+Ajouter une condition sur la longueur du mot de passe (au moins 12 caractères
+
+1. Créer variable MotDePasse 
+2. Demander MotDePasse 
+3. MotDePasse <- mot de passe entrée
+4. Si MotDePasse < 12 caractères alors afficher "erreur"
+Sinon comparer avec le mot de passe attendu
+Si mot de passe attendu alors afficher "succès" 
+Sinon afficher "erreur"
+
+• Exercice 3 
+Ecrire un algorithme en pseudo-code pour :
+Entrée : note
+SI la note est supérieure ou égale à 10
+→ afficher « Admis »
+SINON
+→ afficher « Refusé »
+Variante :
+Ajouter une mention (Très bien, Bien, Passable)
+
+1. Créer variable note 
+2. Demander note 
+3. note <- note entrée
+4. Si note >=20
+alors afficher "Admis, Trés bien"
+Sinon si note>=15 
+alors afficher "Admis, Bien" 
+Sinon si note>=10 
+alors afficher "Admis, Passable"
+Sinon si note<10 
+alors afficher "Refusée"
+
+• Exercice 4 
+Ecrire un algorithme en pseudo-code pour :
+Entrée : couleur du feu
+Afficher le comportement à adopter :
+Rouge → Stop
+Orange → Ralentir
+Vert → Avancer
+
+1. Créer variable feu
+2. Demander feu 
+3. feu <- couleur entrée
+4. Si feu = "Rouge" 
+alors Stop
+Sinon si = "Orange"
+alors Ralentir
+Sinon si = "Vert" 
+alors Avancer
+
+
+
+
+
+
+
