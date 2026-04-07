@@ -1,0 +1,48 @@
+• Exercice 1 
+Ecrire l'algorithme suivant en pseudo code
+Stocker l’année de naissance
+Stocker l’année actuelle
+Calculer l’âge
+Afficher le résultat
+
+1. Créer une variable "AnnéeNaissance"
+2. Demander AnnéeNaissance
+3. AnnéeNaissance <- AnnéeNaissance entrée
+4. Créer une variable "AnnéeActuelle"
+5. Demander AnnéeActuelle
+6. AnnéeActuelle <- AnnéeActuelle entrée
+7. Crée "Age" 
+8. Age <- AnnéeActuelle - AnnéeNaissance
+9. Afficher Age
+
+• Exercice 2 
+Ecrire l'algorithme suivant en pseudo-code :
+Stocker un prénom
+Stocker un âge
+Stocker un statut de connexion
+Afficher un message avec toutes les informations
+
+1. Créer une variable "Prenom" 
+2. Demander Prenom
+3. Prenom <- Prenom entrée
+4. Créer une variable "Age" 
+5. Demander Age
+6. Age <- Age entrée
+7. Créer une variable "Statut"
+8. Demander Statut
+9. Statut <- Statut entrée
+10. Créer une variable "Profil"
+11. Profil <- Prenom, Age, Statut
+12. Afficher Profil 
+
+• Exercice 3 
+Ecrire un algorithme en pseudo-code pour :
+Créer deux variables avec des valeurs différentes
+Échanger leurs valeurs sans les perdre
+
+1. Créer une variable "x"
+2. x <- 1
+3. Créer une variable "y"
+4. y <- 2
+5. x<- y, y <- x
+
