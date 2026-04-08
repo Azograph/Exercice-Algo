@@ -22,9 +22,9 @@ Ajouter une condition sur la longueur du mot de passe (au moins 12 caractères
 2. Demander MotDePasse 
 3. MotDePasse <- mot de passe entrée
 4. Si MotDePasse < 12 caractères alors afficher "erreur"
-Sinon comparer avec le mot de passe attendu
-Si mot de passe attendu alors afficher "succès" 
-Sinon afficher "erreur"
+5.Sinon comparer avec le mot de passe attendu
+6. Si MotDePasse === MotDePasse attendu alors afficher "succès" 
+7. Sinon afficher "erreur"
 
 • Exercice 3 
 Ecrire un algorithme en pseudo-code pour :
@@ -39,14 +39,12 @@ Ajouter une mention (Très bien, Bien, Passable)
 1. Créer variable note 
 2. Demander note 
 3. note <- note entrée
-4. Si note >=20
-alors afficher "Admis, Trés bien"
-Sinon si note>=15 
-alors afficher "Admis, Bien" 
-Sinon si note>=10 
-alors afficher "Admis, Passable"
-Sinon si note<10 
-alors afficher "Refusée"
+4. Si note >20 alors afficher "Erreur" OU note <0 alors afficher "Erreur
+5. Sinon si note =20 alors afficher "Admis, Trés bien"
+6. Sinon si note >=15 alors afficher "Admis, Bien" 
+7. Sinon si note >=10 alors afficher "Admis, Passable"
+8. Sinon si note <10 alors afficher "Refusée"
+9. FIN SI.
 
 • Exercice 4 
 Ecrire un algorithme en pseudo-code pour :
@@ -59,12 +57,12 @@ Vert → Avancer
 1. Créer variable feu
 2. Demander feu 
 3. feu <- couleur entrée
-4. Si feu = "Rouge" 
-alors Stop
-Sinon si = "Orange"
-alors Ralentir
-Sinon si = "Vert" 
-alors Avancer
+4. Si feu == "Rouge"  
+5.	Afficher 'Stop'
+6. Sinon si == "Orange" 
+7.	Afficher 'Ralentir'
+8. Sinon si == "Vert"
+9.	Afficher 'Avancer'
 
 
 

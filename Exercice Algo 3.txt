@@ -1,0 +1,40 @@
+• Exercice 1 
+Afficher les nombres pairs entre 1 et 20
+Indice : effecuez des recherches sur l'opérateur mathématique qui s'appelle Modulo
+
+1. POUR i modulo 2 de 1 à 20
+2. SI i == 0 
+3. AFFICHER "pair"
+4. SINON AFFICHER "Impair"
+5. FIN de POUR
+
+• Exercice 2 
+Afficher les nombres de 10 à 0
+
+1. POUR i de 1 à 10
+2. AFFICHER i 
+3. FIN de POUR
+
+• Exercice 3 
+L’utilisateur a 3 essais maximum
+Afficher le numéro de l’essai
+Arrêter après le dernier essai
+
+1. Créer une variable Numero
+2. Numero <- numéro de l'essai
+3. POUR i de 1 à 3 
+4. AFFICHER Numero
+5. FIN de POUR
+
+• Exercice 4 
+Demander un nombre
+Afficher sa table de multiplication de 1 à 10
+
+1. Créer une variable Nombre
+2. Nombre <- Nombre demander
+3. DEMANDER un nombre
+4. POUR i de 0 à 10
+5. AFFICHER Nombre x i
+6. FIN de POUR
+
+
