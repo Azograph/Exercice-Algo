@@ -1,0 +1,60 @@
+• Exercice 1 
+Créer un tableau de valeurs
+Afficher chaque élément un par un
+
+1. valeur <- [0,10,15]
+2. POUR i de 0 à Taille de valeur -1
+3. AFFICHER index de valeur
+4.FIN POUR
+
+• Exercice 2
+Créer un tableau de notes
+Calculer la somme des notes
+Calculer la moyenne
+Afficher le résultat
+
+1. Créer une variante note 
+2. DEMANDER les notes
+2. note <- notes rentrée
+3. somme <- index de note
+4. moyenne <- somme / nombre de notes
+5. AFFICHER moyenne
+----------------
+1. note <- [ 10, 20, 15]
+2. somme <- 0
+2. POUR i de 0 à taille de note -1 
+3.  somme <- somme + note[i]
+4. FIN POUR
+5. moyenne <- somme / taille de note
+6. AFFICHER moyenne
+
+• Exercice 3 
+Créer un tableau de nombres
+Trouver la valeur maximale
+Trouver la valeur minimale
+
+1. nombre <- [0,5,10,15,20]
+2. mini <- nombre [0]
+2. POUR i de 0 à taille de nombre -1
+3. SI nombre[i]<mini 
+4. mini <- nombre[i]
+5. FIN POUR
+6. maxi <- nombre [0]
+7. POUR i de 0 à taille de nombre -1
+8. SI nombre[i] > maxi
+9. maxi <- nombre[i]
+10. FIN POUR
+11. AFFICHER mini
+12. AFFICHER maxi
+
+• Exercice 4 
+Créer un tableau
+Compter le nombre d’éléments
+Afficher le total
+
+1. Total <- 0
+2. tableau <- []
+3. POUR i de 0 à taille de tableau -1 
+4. total <- total +1
+5. FIN POUR
+6. AFFICHER total
