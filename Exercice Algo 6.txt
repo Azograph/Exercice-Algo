@@ -26,8 +26,8 @@ FIN SI
 • Exercice 4 
 notes <- []
 somme <- 0
-SI notes =! Number 
-AFFICHER "Erreur"
+SI notes != Number 
+AFFICHER "Erreur, entrée des entiers numérique uniquement"
 SINON
 POUR chaque note dans notes
 somme <- somme + note 
