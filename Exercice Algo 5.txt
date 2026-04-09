@@ -1,0 +1,47 @@
+• Exercice 1 
+
+Partie 1
+1. SOUS ALGORITHME calculerTVA(prixHT, tauxTVA)
+2. TVA <- prixHT x tauxTVA
+3. RETOURNER TVA
+4. FIN
+
+Parie 2
+5. prixHT <- prix rentré
+6. tauxTVA <- TVA rentré
+7. calculerTVA(prixHT, tauxTVA)
+8. TCC <- prixHT + TVA
+9. AFFICHE TCC
+
+• Exercice 2 
+
+Partie 1
+SOUS ALGORITHME calculerMoyenne(note1, note2, note3)
+somme <- note1 + note2 + note3 
+moyenne <- somme/ nombre de note
+RETOURNER moyenne 
+FIN 
+
+SOUS ALGORITHME attribuerMention(moyenne)
+	SI moyenne >= 16 
+	mention <- "Trés bien"
+	SINON SI moyenne >= 14 
+	mention <- "Bien" 
+	SINON SI moyenne >= 12 
+	mention <- "Assez Bien" 
+	SINON SI moyenne >= 10 
+	mention <- "Passable" 
+	SINON SI moyenne < 10 
+	mention <- "Insuffisant" 
+	FIN SI 
+RETOURNER mention
+FIN
+
+note1 <- note demandé
+note2 <- note demandé
+note3 <- note demandé
+calculerMoyenne(note1,note2,note3)
+attribuerMention(moyenne) 
+AFFICHER moyenne
+AFFICHER mention
+
