@@ -7,18 +7,22 @@ Partie 1
 4. FIN
 
 Parie 2
-5. prixHT <- prix rentré
-6. tauxTVA <- TVA rentré
-7. calculerTVA(prixHT, tauxTVA)
-8. TCC <- prixHT + TVA
+DEMANDER prixPorduit
+5. prixProduit <- prix rentré
+DEMANDER tauxTVADemande
+6. tauxTVADemande <- TVA rentré
+7. varTVA <- calculerTVA(prixProduit, tauxTVADemande)
+8. TCC <- prixProduit + varTVA
 9. AFFICHE TCC
+
+-------------------------------------
 
 • Exercice 2 
 
 Partie 1
 SOUS ALGORITHME calculerMoyenne(note1, note2, note3)
 somme <- note1 + note2 + note3 
-moyenne <- somme/ nombre de note
+moyenne <- somme/ 3
 RETOURNER moyenne 
 FIN 
 
@@ -37,11 +41,14 @@ SOUS ALGORITHME attribuerMention(moyenne)
 RETOURNER mention
 FIN
 
+DEMANDER note1
 note1 <- note demandé
+DEMANDER note2
 note2 <- note demandé
+DEMANDER note3
 note3 <- note demandé
-calculerMoyenne(note1,note2,note3)
-attribuerMention(moyenne) 
-AFFICHER moyenne
-AFFICHER mention
+1moyenne <- calculerMoyenne(note1,note2,note3)
+1mention <- attribuerMention(moyenne) 
+AFFICHER 1moyenne
+AFFICHER 1mention
 
