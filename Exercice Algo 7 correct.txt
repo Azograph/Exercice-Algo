@@ -1,0 +1,34 @@
+• Mini projet 1 : jeu du nombre mystère 
+
+Données à gérer : 
+- Nombre choisi par l'ordinateur 
+- Nombre de tentatives pour l'utilisateur 
+- Nombre choisi par l'utilisateur 
+
+Sorties :
+- Messages d'erreurs : 
+	- Nombre au dessus de 100 ou en dessous -1
+	- Chaine de caractère
+- Message de victoire
+	- Bon nombre trouvé
+- Message d'echec :
+	- Nombre de tentatives
+- Message d'information : 
+	- Trop petit
+	- Trop grand
+
+
+mystere <- générer aléatoirement un nombre entre 1 et 100
+
+TANT QUE (nbrTentative n'est pas un nombre entier positif)
+	DEMANDER à l'utilisateur le nombre de tentatives
+	nbrTentatives <- nombre entré
+	SI  le nombre entré n'est pas un entier positif
+		AFFICHER " Erreur de saisi : vous devez entrer un nombre entier numérique"
+	FIN SI 
+FIN TANT QUE 
+
+
+	
+
+ 

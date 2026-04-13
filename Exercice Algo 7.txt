@@ -12,10 +12,10 @@ POUR i de 1 à 3
 		AFFICHER "Trop grand" + i 
 	SINON SI i = 3 
 		AFFICHER "tentative épuisées"
-	SINON SI proposition => 0
-		AFFICHER "message d'erreur"
-	SINON SI proposition =< 101
-		AFFICHER "message d'erreur"
+	SINON SI proposition =< 0
+		AFFICHER "erreur"
+	SINON SI proposition =>101
+		AFFICHER "erreur"
 	FIN SI 
 FIN POUR
 

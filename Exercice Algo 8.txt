@@ -1,0 +1,67 @@
+• Exercice 1 : Afficher une grille de morpion
+
+morpion <- [ 
+	["", "", ""]
+	["", "", ""]
+	["", "", ""] ]
+
+morpion [1][1] <- O
+morpion [0][2] <- X
+morpion [2][2] <- O
+
+Pour i de 0 à taille de morpion -1
+	Pour j de 0 à taille de morpion[i]-1
+		AFFICHER morpion[i][j]
+	FIN POUR 
+FIN POUR 
+
+Affichage : 
+morpion [ 
+	["", "", "X"]
+	["", "O", ""]
+	["O", "", ""] ]
+
+
+• Exercice 2 : Notes de plusieurs classes
+
+notes <- [
+	[0,0,0,0,0]
+	[0,0,0,0,0]
+	[0,0,0,0,0] ]
+
+SOUS ALGORITHME calculerMoyenne(notes)
+	POUR chaque notes dans note
+		somme <- notes[i] + somme
+	FIN POUR
+	moyenne <- somme / nombre d'éléments dans note
+	RETOURNER moyenne
+FIN 
+
+SOUS ALGORITHME calculerMoyenneClasses (moyenne)
+POUR chaque i de notes 
+	moyenneSomme <- moyenne + moyenneSomme
+FIN POUR
+moyenneClasse <- moyenneSomme / nombre de i
+RETOURNER moyenneClasse
+FIN
+
+• Exercice 3 : Chercher dans une grille 
+
+chiffre [
+	[1,2,3,4]
+	[1,2,3,4]
+	[1,2,3,4]
+	[1,2,3,4]]
+
+chiffrespécifique <- 5
+POUR i de 0 à taille de chiffre -1
+	POUR j de 0 à taille de chiffre[i]-1
+		SI chiffre[i][j] == chiffrespécifique
+			AFFICHER chiffre [i][j]
+		SINON 
+			AFFICHER "Nombre non trouvé"
+		FIN SI
+	FIN POUR
+FIN POUR
+	
+	
