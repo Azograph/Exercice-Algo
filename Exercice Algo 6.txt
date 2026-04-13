@@ -26,8 +26,25 @@ FIN SI
 • Exercice 4 
 notes <- []
 somme <- 0
+SI taille de notes => 1
+POUR chaque note dans notes
+SI note est un number
+somme <- somme + note 
+FIN SI
+FIN POUR
+moyenne <- somme / nombre d'éléments de notes
+AFFICHER moyenne
+SINON 
+AFFICHER "erreur : aucune note à traiter" 
+FIN SI
+
+--xxx---
+notes <- []
+somme <- 0
 SI notes != Number 
 AFFICHER "Erreur, entrée des entiers numérique uniquement"
+SINON SI notes = null
+AFFICHER "Erreur"
 SINON
 POUR chaque note dans notes
 somme <- somme + note 
