@@ -1,44 +1,45 @@
-Mini projet 1 : jeu du nombre mystère
+• Mini projet 1 : jeu du nombre mystère
 
 mystère <- générer aléatoirement un nombre entre 1 et 100
-POUR i de 1 à 3
-SI proposition = mystère
-AFFICHER "VICTOIRE !" + i 
-SINON SI  proposition < mystère
-AFFICHER "Trop petit" + i 
-SINON SI proposition > mystère 
-AFFICHER "Trop grand" + i 
-SINON SI i = 3 
-AFFICHER "tentative épuisées"
-SINON SI proposition => 0
-AFFICHER "message d'erreur"
-SINON SI proposition =< 101
-AFFICHER "message d'erreur"
-FIN SI 
-FIN POUR
+DEMANDER PROPOSTION
 proposition <- entrée par l'utilisateur
+POUR i de 1 à 3
+	SI proposition = mystère
+		AFFICHER "VICTOIRE !" + i 
+	SINON SI  proposition < mystère
+		AFFICHER "Trop petit" + i 
+	SINON SI proposition > mystère 
+		AFFICHER "Trop grand" + i 
+	SINON SI i = 3 
+		AFFICHER "tentative épuisées"
+	SINON SI proposition => 0
+		AFFICHER "message d'erreur"
+	SINON SI proposition =< 101
+		AFFICHER "message d'erreur"
+	FIN SI 
+FIN POUR
 
-Mini projet 3 : Simulation de connexion utilisateur
+
+• Mini projet 3 : Simulation de connexion utilisateur
 
 DEMANDER identifiant 
 identifiant <- identifiant saisi
 DEMANDER mdp 
 mdp <- mdp saisi
 POUR i de 1 à 3
-SI identifiant = identifiant correct ET mdp = mdp correct 
-connexion réussi
-AFFICHER "connexion réussi"
-SINON 
-connexion échoué 
-AFFICHER "connexion échoué" + "il reste" i "tentatives"
-FIN SI 
-SI i < 3 
-bloquer le compte identifiant
-AFFICHER "compte bloqué" 
-FIN SI 
+	SI identifiant = identifiant correct ET mdp = mdp correct 
+	connexion réussi
+		AFFICHER "connexion réussi"
+	SINON connexion échoué
+		AFFICHER "connexion échoué" + "il reste" i "tentatives"
+	FIN SI 
+	SI i < 3 
+	bloquer le compte identifiant
+		AFFICHER "compte bloqué" 
+	FIN SI 
 FIN POUR
 
-Mini projet 5 : Analyse de notes d'une classe 
+• Mini projet 5 : Analyse de notes d'une classe 
 
 DEMANDER notes 
 notes <- []
@@ -73,3 +74,4 @@ maxi <- note [i]
 FIN SI
 FIN POUR 
 AFFICHER "note minimal" mini + "note maximal" maxi
+
