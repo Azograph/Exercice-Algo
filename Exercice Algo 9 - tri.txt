@@ -1,0 +1,139 @@
+• Exercice 1 
+Soit le tableau : [5, 1, 4, 2, 8]
+Appliquer l'algorithme du tri à bulles manuellement
+Tracer chaque passage complet
+Indiquer tous les échanges effectués
+
+tableau <- [5, 1, 4, 2, 8]
+
+SOUS ALGORITHME triBulles(tableau)
+n<- longueur(tableau) 	// Taille de x (ici x=tableau)
+	POUR i de 0 à n -2  // longueur du tableau (n=5) -2 donc i =3 (tableau (n)5-2=3) 
+		POUR j de 0 à n -2 -i 
+			SI tableau[j] > tableau [j+1]
+			temp <- tableau [j]  		//échange étape 1
+			tableau [j] <- tableau [j+1]	//échange étape 2
+			tableau [j+1] <- temp	//échange étape 3
+			echange <-vrai 		//Optimisé pour sortir de la boucle quand il n'y a plus d'échange
+		FIN POUR // TOUR
+		SI echange <- faux
+			SORTIR de la boucle
+		FIN SI				//FIN de l'optimisation
+	FIN POUR // PASSAGE
+FIN SOUS ALGORITHME
+
+[i] = Compteur de passage de boucle 
+[j] = Compteur d'élément dans tableau
+
+TRACAGE : 
+// [5, 1, 4, 2, 8]    
+
+PASSAGE 1 i=0 :
+TOUR 1 [1,5,4,2,8]       j= 0	// comparer 5 et 1 (index [0] et index [1]) échanger 1 et 5 
+TOUR 2 [1,4,5,2,8]       j= 1	// comparer 5 et 4 (index [1] et index [2]) échanger 5 et 4 
+TOUR 3 [1,4,2,5,8]       j= 2	// comparer 5 et 2 (index [2] et index [3]) échanger 2 et 5 
+TOUR 4 [1,4,2,5,8]       j=3 	// compare 5 et 8   (index [3] et index [4])
+
+Passage 2 i=1 : 
+[1,4,2,5,8]      j= 0	  // comparer 1 et 4 
+[1,2,4,5,8]      j= 1	 // comparer 4 et 2 échange 4 et 2
+[1,2,4,5,8]      j= 2	 //  comparer 4 et 5 
+
+Passage 3 i=2 : 
+[1,2,4,5,8]      j= 0            // compare 1 et 2 
+[1,2,4,5,8]      j= 1            // compare 2 et 4 
+
+Passage 4 i=3 : 
+[1,2,4,5,8]      j= 0            // compare 1 et 2 
+
+-------------------------------------------------------------------
+• Exercice 2  
+Soit le tableau : [29, 10, 14, 37, 13, 25]
+Appliquer l'algorithme du tri par sélection
+À chaque passage, identifier le minimum trouvé
+Indiquer l'échange effectué
+Tracer l'état du tableau après chaque passage
+
+SOUS ALGORITHME triSelection(tableau) 
+n <- longueur(tableau) 
+	POUR i de 0 à n-2 
+		IndexMini <- i
+		POUR j de i +1 à n -1
+			SI tableau[j] < tableau[IndexMini]
+				IndexMini <- j
+			FIN SI 
+		FIN POUR
+		SI indexMini !=i
+			temp <- tableau[i]
+			tableau[i]<- tableau[IndexMini]
+			tableau[IndexMini]<-temp
+		FIN SI
+	FIN POUR
+FIN SOUS ALGORITHME
+
+	
+TRACAGE 
+
+Passage 1 : 
+i=0 // IndexMini = i = 0 
+j=1 : 29>10 donc IndexMini <- j donc 	(IndexMini = 1) 	//Compare tableau[0] et tableau[1]
+j=2 : 10<14 donc  pas de changement 	(IndexMini = 1) 	// Compare tableau[1] et tableau[2]
+j=3 : 10<37 donc pas de changement 	(IndexMini = 1)	// Compare tableau[1] et tableau[3]
+j=4 : 10<13 donc pas de changement 	(IndexMini = 1)	// Compare tableau[1] et tableau[4]
+j=5 : 10<25 donc pas de changement 	(IndexMini = 1)	// Compare tableau[1] et tableau[5]
+
+Donc IndexMini <- j
+Donc IndexMini != i
+Donc changement : 
+temp <- tableau[0]
+tableau[0] <- tableau[1]
+tableau[1] <-temp
+// [10, 29, 14, 37, 13, 25]
+
+Passage 2 
+i=1 donc IndexMini <- 1
+j=2 : 29>14 donc IndexMini <- j 		(IndexMini=2) 	// Comparer tableau[1] et tableau[2]
+j=3 : 14<37 donc pas de changement 	(IndexMini = 2) 	// Compare tableau[2] et tableau[3]
+j=4 : 14<13 donc  IndexMini <-j 	 	(IndexMini = 4) 	// Compare tableau[2] et tableau[4]
+j=5 : 13<25 donc pas de changement	 (IndexMini = 4) 	// Compare tableau[4] et tableau[5]
+
+Donc IndexMini <- j
+Donc IndexMini != i
+Donc changement : 
+temp <- tableau[1]
+tableau[1] <- tableau[4]
+tableau[4] <-temp
+// [10, 13, 14, 37, 29, 25]
+
+Passage 3 
+i=2 donc IndexMini <- 2
+j=3 : 14>37 donc pas de changemen	(IndexMini=2) 	// Comparer tableau[2] et tableau[3]
+j=4 : 14<29 donc pas de changement 	(IndexMini = 2) 	// Compare tableau[2] et tableau[4]
+j=5 : 14<25 donc pas de changement	 (IndexMini = 2) 	// Compare tableau[2] et tableau[5]
+
+Donc IndexMini <- i 
+Donc pas de changement
+// [10, 13, 14, 37, 29, 25]
+
+Passage 4 
+i=3 donc IndexMini <-3
+j=4 37>29 donc IndexMini <- j 		(IndexMini=4) 	//Comparer tableau[3] et tableau[4]
+j=5 29>25 donc IndexMini <- j 		(IndexMini=5) 	// Comparer tableau[4] et tableau[5]
+
+Donc IndexMini <- j
+Donc IndexMini != i
+Donc changement
+temp <- tableau[3]
+tableau[3] <- tableau[5]
+tableau[5] <- temp
+// [10, 13, 14, 25, 29, 37]
+
+Passage 5 
+i=4
+j=5 25>29 donc pas de changement 	(IndexMini=4) 	// Comparer tableau[4] et tableau [5]
+
+Donc IndexMini <- i 
+Donc pas de changement
+// [10, 13, 14, 25, 29, 37]
+
+
