@@ -1,0 +1,43 @@
+• Exercice 1 
+Soit le tableau : [5, 1, 4, 2, 8]
+Appliquer l'algorithme du tri à bulles manuellement
+Tracer chaque passage complet
+Indiquer tous les échanges effectués
+
+tableau <- [5, 1, 4, 2, 8]
+
+SOUS ALGORITHME triBulles(tableau)
+n<- longueur(tableau)
+	POUR i de 0 à n -2 
+		POUR j de 0 à n -2 -i
+			SI tableau[j] > tableau [j+1]
+			temp <- tableau [j]
+			tableau [j] <- tableau [j+1]
+			tableau [j+1] <- temp
+		FIN POUR
+	FIN POUR
+FIN SOUS ALGORITHME
+
+Traçage : 
+[5, 1, 4, 2, 8]    
+
+Passage 1 i=0 :
+[1,5,4,2,8]       j= 0         // comparer 5 et 1 échanger 1 et 5 
+[1,4,5,2,8]       j= 1	//  comparer 5 et 4 échanger 5 et 4 
+[1,4,2,5,8]       j= 2	//  comparer 5 et 2 échanger 2 et 5 
+[1,4,2,5,8]       j=3         // compare 5 et 8 
+
+Passage 2 i=1 : 
+[1,4,2,5,8]      j= 0	  // comparer 1 et 4 
+[1,2,4,5,8]      j= 1	 // comparer 4 et 2 échange 4 et 2
+[1,2,4,5,8]      j= 2	 //  comparer 4 et 5 
+
+Passage 3 i=2 : 
+[1,2,4,5,8]      j= 0            // compare 1 et 2 
+[1,2,4,5,8]      j= 1            // compare 2 et 4 
+
+Passage 4 i=3 : 
+[1,2,4,5,8]      j= 0            // compare 1 et 2 
+
+
+

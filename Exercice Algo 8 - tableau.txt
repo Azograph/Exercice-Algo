@@ -1,0 +1,99 @@
+• Exercice 1 : Afficher une grille de morpion
+Créer un tableau 3×3 représentant une grille de morpion.
+Initialiser la grille avec des espaces vides (" ")
+Placer quelques coups (X et O)
+Afficher la grille de manière lisible
+
+morpion <- [ 
+	["", "", ""],
+	["", "", ""],
+	["", "", ""] ]
+
+morpion [1][1] <- "O"  // tableau [index ligne] [index colone] <-valeur
+morpion [0][2] <- "X"
+morpion [2][2] <- "O"
+
+// Affichage ligne par ligne 
+Pour i de 0 à taille de morpion-1
+	AFFICHER morpion[i]-1
+FIN POUR
+
+//Traçage de la boucle POUR : 
+morpion [ 
+	["", "", "X"]        // 1er tour de boucle 
+	["", "O", ""]       // 2e tour de boucle 
+	["O", "", ""] ]    // 3e tour de boucle 
+
+-----
+// Affichage en une seule colone, case une par une 
+Pour i de 0 à taille de morpion -1
+	Pour j de 0 à taille de morpion[i]-1
+		AFFICHER morpion[i][j]
+	FIN POUR 
+FIN POUR 
+
+-------------------------------------------------
+• Exercice 2 : Notes de plusieurs classes
+Exercice 2 : Notes de plusieurs classes
+Créer un tableau représentant les notes de 3 classes avec 5 élèves chacune.
+Calculer la moyenne d'une classe spécifique
+Calculer la moyenne générale de toutes les classes
+
+Classes <- [
+	[0,0,0,0,0],
+	[0,0,0,0,0],
+	[0,0,0,0,0] ]
+
+// Ici on a une fonction "plan" qui pourra servir à différent tableau
+SOUS ALGORITHME calculerMoyenne(tableau)
+	somme <- 0
+		POUR i de 0 à taille de tableau -1
+			somme <- tableau[i] + somme
+		FIN POUR
+	moyenne <- somme / nombre d'élément dans tableau
+	RETOURNER moyenne
+FIN SOUS ALGORITHME
+
+// Ici on a une fonction "plan" qui calcule la moyenne de toute les classes
+SOUS ALGORITHME calculerMoyenneClasse (tableauClasse)
+	somme <- 0
+	POUR i de 0 à taille de tableauClasse -1
+		somme <- somme + moyenne(tableauClasse[i]
+	FIN POUR
+	moyenneClasse <- somme / nombre d'élément de tableauClasse
+	RETOURNER moyenne
+FIN SOUS ALGORITHME
+
+ALGORITHME PRINCIPALE
+moyennePremiereClasse <- moyenne(classes[0]) // Calcule la moyenne de la première ligne du tableau classes
+moyenneGeneral <- moyenneClasse(classes) // Calcule la moyenne de tout le tableau classes
+
+--------------------------------------------------
+• Exercice 3 : Chercher dans une grille 
+Créer un tableau 4×4 de nombres.
+Chercher si un nombre spécifique existe dans la grille
+Si oui, afficher sa position (ligne, colonne)
+Si non, afficher "Nombre non trouvé"
+
+chiffre [
+	[1,2,3,4],
+	[1,2,3,4],
+	[1,2,3,4],
+	[1,2,3,4]
+]
+
+chiffrespecifique <- 5
+trouve <- false
+POUR i de 0 à taille de chiffre -1
+	POUR j de 0 à taille de chiffre[i]-1
+		SI chiffrespecifique = chiffre[i][j]
+			AFFICHER "nombre trouvé à la ligne"+ i + "et colone" + j
+			trouve <- true
+		FIN SI
+	FIN POUR
+FIN POUR
+
+SI trouve est false
+	AFFICHER "nombre non trouvé"
+FIN SI
+	
