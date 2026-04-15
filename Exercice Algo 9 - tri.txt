@@ -204,10 +204,6 @@ nombre[5] = 67
 
 Nombre trouvé ! 
 
-
-
-
-
 ------------------------------------------------------------------------
 Recherche dicotomique 
 
@@ -217,7 +213,7 @@ fin <- longueur(tableu) -1
 (milieu) 5 <- (début)0 + 10(fin) /2
 début <- milieu+1 = début <-5 
 milieu <- 6+10/2 = 8
-----------------------------
+------------------------------------------------------------------------
 • Exercice 1 
 Écrire un algorithme qui : 
 - Crée un tableau de prénoms 
@@ -272,6 +268,20 @@ chercherPrenom(liste,prenom)
 - Compte combien de fois ce nombre apparaît 
 - Affiche le résultat 
 
+valeur <- [ 0, 1, 1 , 1, 2, 3, 3]
+chercher <- 1
+
+SOUS ALGORITHME chercherPrenom(tableau, element) 
+	POUR i de 0 à longueur(tableau)-1
+		SI tableau[i] = element
+			compteur <- compteur +1 
+		FIN SI	
+	FIN POUR
+	RETOURNER compteur
+FIN SOUS ALGORITHME
+
+chercherValeur(valeur,chercher)
+resultat : compteur = 3
 
 ----------------------------------------------------
 • Exercice 3
