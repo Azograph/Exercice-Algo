@@ -73,6 +73,8 @@ FIN SOUS ALGORITHME
 
 	
 TRACAGE 
+// [29, 10, 14, 37, 13, 25]
+
 
 Passage 1 : 
 i=0 // IndexMini = i = 0 
@@ -92,7 +94,7 @@ tableau[1] <-temp
 
 Passage 2 
 i=1 donc IndexMini <- 1
-j=2 : 29>14 donc IndexMini <- j 		(IndexMini=2) 	// Comparer tableau[1] et tableau[2]
+j=2 : 29>14 donc IndexMini <- j 		(IndexMini = 2) 	// Comparer tableau[1] et tableau[2]
 j=3 : 14<37 donc pas de changement 	(IndexMini = 2) 	// Compare tableau[2] et tableau[3]
 j=4 : 14<13 donc  IndexMini <-j 	 	(IndexMini = 4) 	// Compare tableau[2] et tableau[4]
 j=5 : 13<25 donc pas de changement	 (IndexMini = 4) 	// Compare tableau[4] et tableau[5]
@@ -107,7 +109,7 @@ tableau[4] <-temp
 
 Passage 3 
 i=2 donc IndexMini <- 2
-j=3 : 14>37 donc pas de changemen	(IndexMini=2) 	// Comparer tableau[2] et tableau[3]
+j=3 : 14>37 donc pas de changemen	(IndexMini = 2) 	// Comparer tableau[2] et tableau[3]
 j=4 : 14<29 donc pas de changement 	(IndexMini = 2) 	// Compare tableau[2] et tableau[4]
 j=5 : 14<25 donc pas de changement	 (IndexMini = 2) 	// Compare tableau[2] et tableau[5]
 
@@ -117,8 +119,8 @@ Donc pas de changement
 
 Passage 4 
 i=3 donc IndexMini <-3
-j=4 37>29 donc IndexMini <- j 		(IndexMini=4) 	//Comparer tableau[3] et tableau[4]
-j=5 29>25 donc IndexMini <- j 		(IndexMini=5) 	// Comparer tableau[4] et tableau[5]
+j=4 37>29 donc IndexMini <- j 		(IndexMini = 4) 	//Comparer tableau[3] et tableau[4]
+j=5 29>25 donc IndexMini <- j 		(IndexMini = 5) 	// Comparer tableau[4] et tableau[5]
 
 Donc IndexMini <- j
 Donc IndexMini != i
@@ -130,10 +132,180 @@ tableau[5] <- temp
 
 Passage 5 
 i=4
-j=5 25>29 donc pas de changement 	(IndexMini=4) 	// Comparer tableau[4] et tableau [5]
+j=5 25>29 donc pas de changement 	(IndexMini = 4) 	// Comparer tableau[4] et tableau [5]
 
 Donc IndexMini <- i 
 Donc pas de changement
 // [10, 13, 14, 25, 29, 37]
 
+
+------------------------------------------------------------------------
+• Exercice 3
+Soit le tableau : `[45, 12, 89, 23, 67, 34, 5, 78]` 
+1. Trier ce tableau en utilisant le tri à bulles OU le tri par sélection (au choix) 
+2. Une fois trié, utiliser la recherche dichotomique pour trouver le nombre 67 
+3. Tracer l'exécution de la recherche dichotomique 
+
+
+SOUS ALGORITHME triSelection(tableau) 
+n <- longueur(tableau) 
+	POUR i de 0 à n-2 
+		IndexMini <- i
+		POUR j de i +1 à n -1
+			SI tableau[j] < tableau[IndexMini]
+				IndexMini <- j
+			FIN SI 
+		FIN POUR
+		SI indexMini !=i
+			temp <- tableau[i]
+			tableau[i]<- tableau[IndexMini]
+			tableau[IndexMini]<-temp
+		FIN SI
+	FIN POUR
+FIN SOUS ALGORITHME
+
+nombre <- [45, 12, 89, 23, 67, 34, 5, 78]
+triSelection(nombre)
+nombre <- [5 , 12, 23, 34, 45, 67, 78, 89]
+
+ SOUS ALGORITHME chercherNombre(tableau, element) 
+	debut <- 0
+	fin <- longueur(tableau)-1
+	TANT QUE debut <= fin 
+		mileu <- (debut + fin) /2 
+			SI  tableau[milieu] = element 
+				RETOURNER milieu 		// retourne l'index : ici 0 
+			SINON SI tableau[milieu] < element
+				debut <- milieu + 1 
+			SINON
+				fin <- milieu -1
+			FIN SI
+	FIN TANT QUE	
+	RETOURNER -1
+FIN SOUS ALGORITHME
+
+Passage 1  
+debut = 0
+fin = 7
+milieu <- 4 
+nombre[4] =  45
+
+Passage 2 
+debut = 5
+fin = 7
+milieu <- 6
+nombre[6] = 78
+
+Passage 3
+debut = 5
+fin = 5
+mileu = 5 
+nombre[5] = 67
+
+Nombre trouvé ! 
+
+
+
+
+
+------------------------------------------------------------------------
+Recherche dicotomique 
+
+1 2 3 4 5 6 7 8 9 10 11
+debut <- 0
+fin <- longueur(tableu) -1
+(milieu) 5 <- (début)0 + 10(fin) /2
+début <- milieu+1 = début <-5 
+milieu <- 6+10/2 = 8
+----------------------------
+• Exercice 1 
+Écrire un algorithme qui : 
+- Crée un tableau de prénoms 
+- Demande un prénom à rechercher 
+- Utilise la recherche séquentielle (et dichotomique) pour le trouver 
+- Affiche sa position ou "non trouvé"
+
+
+- Séquentielle
+
+SOUS ALGORITHME chercherPrenom(tableau, element) 
+	POUR i de 0 à longueur(tableau)-1
+		SI tableau[i] = element
+			RETOURNER i 
+		FIN SI	
+	FIN POUR
+	RETOURNER -1
+FIN SOUS ALGORITHME
+
+liste <- [ Coline, Juliette,  Lucas, Rafael ]
+prenom <- Coline
+chercherPrenom(liste,prenom) 
+----
+- Dichotomique
+
+SOUS ALGORITHME chercherPrenom(tableau, element) 
+	debut <- 0
+	fin <- longueur(tableau)-1
+	TANT QUE debut <= fin 
+		mileu <- (debut + fin) /2 
+			SI  tableau[milieu] = element 
+				RETOURNER milieu 		// retourne l'index : ici 0 
+				AFFICHER tableau[milieu] 	// retourne le contenu de l'index : ici Coline
+			SINON SI tableau[milieu] < element
+				debut <- milieu + 1 
+			SINON
+				fin <- milieu -1
+			FIN SI
+	FIN TANT QUE	
+	RETOURNER -1
+FIN SOUS ALGORITHME
+
+liste <- [ Coline, Juliette,  Lucas, Rafael ]
+prenom <- Coline
+chercherPrenom(liste,prenom) 
+
+----------------------------------------------------
+• Exercice 2 
+
+- Crée un tableau de nombres (avec des doublons possibles) 
+- Demande un nombre à rechercher 
+- Compte combien de fois ce nombre apparaît 
+- Affiche le résultat 
+
+
+----------------------------------------------------
+• Exercice 3
+Soit le tableau trié : `[2, 5, 8, 12, 16, 23, 38, 45, 56, 67, 78]` 
+1. Écrire l'algorithme de recherche dichotomique complet 
+2. Tracer l'exécution pour rechercher le nombre 23 
+3. Indiquer les valeurs de `debut`, `fin` et `milieu` à chaque étape
+
+
+ SOUS ALGORITHME chercherNombre(tableau, element) 
+	debut <- 0
+	fin <- longueur(tableau)-1
+	TANT QUE debut <= fin 
+		mileu <- (debut + fin) /2 
+			SI  tableau[milieu] = element 
+				RETOURNER milieu 		// retourne l'index : ici 0 
+			SINON SI tableau[milieu] < element
+				debut <- milieu + 1 
+			SINON
+				fin <- milieu -1
+			FIN SI
+	FIN TANT QUE	
+	RETOURNER -1
+FIN SOUS ALGORITHME
+
+nombre <- [2, 5, 8, 12, 16, 23, 38, 45, 56, 67, 78]
+chercheNombre(nombre,23)
+
+TRACAGE
+
+Passage 1  
+debut <-0
+fin <- 10
+milieu <- 5 
+nombre[5] = 23 
+Nombre trouvé :  5
 
