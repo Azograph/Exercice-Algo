@@ -1,0 +1,75 @@
+• Exercice 1 
+Écrire une fonction récursive `somme(n)` qui calcule la somme de tous les nombres de 1 à n.
+Exemple : `somme(5) = 1 + 2 + 3 + 4 + 5 = 15`
+Questions :
+1. Identifier le cas de base
+2. Identifier le cas récursif
+3. Écrire l'algorithme complet
+4. Tracer l'exécution pour n=4
+
+
+Exemple : `somme(5) = 1 + 2 + 3 + 4 + 5 = 15`
+
+n+(n-1) 
+
+
+FONCTION somme(n) 
+	SI n =  1
+		RETOURNER 1
+	SINON
+		RETOURNER n + somme(n- 1)
+	FIN SI
+FIN FONCTION
+
+
+somme(4) = 1+2+3+4= 10
+
+somme(4)
+= 4 + somme(3)
+= 4 + (3 + somme(2))
+= 4 + (3 + (2 + somme(1)))
+= 4 + (3 + (2 + 1))
+= 4 + (3 + 3)
+= 4 + 6
+= 10
+
+somme(4) -> 
+attendre 4 + somme(4-1)  [3]
+ ->
+attendre 4 + (3+ somme(3-1)) [2]
+->
+attendre 4 + (3+ (2+somme(2-1))) [1] // n=1 
+->
+4 + (3 + (2 + 1)) 
+
+
+-------------------------------------------------------
+• Exercice 2 
+Écrire une fonction récursive puissance(x, n) qui calcule x^n.
+Exemple : puissance(2, 4) = 2^4 = 2 × 2 × 2 × 2 = 16
+Questions :
+Quel est le cas de base ? (rappel : x^0 = 1)
+Quelle est la relation récursive ? (x^n = x × x^(n-1))
+Écrire l'algorithme complet
+Tracer l'exécution pour puissance(2, 4)
+
+FONCTION puissance(x,n)
+	SI n=0
+		RETOURNER 1
+	SINON SI 
+		RETOURNER x* puissance(x,n-1)
+	FIN SI
+FIN FONCTION
+
+
+
+puissance(2, 4)
+= 2 * puissance(2, 3)
+= 2 * (2 * puissance(2, 2))
+= 2 * (2 * (2 * puissance(2, 1)))
+= 2 * (2 * (2 * (2 * puissance(2, 0))))
+= 2 * (2 * (2 * (2 * 1)))
+= 2 * (2 * (2 * 2))
+= 2 * (2 * 4)
+= 2 * 8
+= 16

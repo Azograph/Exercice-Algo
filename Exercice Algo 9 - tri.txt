@@ -174,7 +174,7 @@ nombre <- [5 , 12, 23, 34, 45, 67, 78, 89]
 	TANT QUE debut <= fin 
 		mileu <- (debut + fin) /2 
 			SI  tableau[milieu] = element 
-				RETOURNER milieu 		// retourne l'index : ici 0 
+				RETOURNER milieu 
 			SINON SI tableau[milieu] < element
 				debut <- milieu + 1 
 			SINON
@@ -270,6 +270,7 @@ chercherPrenom(liste,prenom)
 
 valeur <- [ 0, 1, 1 , 1, 2, 3, 3]
 chercher <- 1
+compteur <- 0
 
 SOUS ALGORITHME chercherPrenom(tableau, element) 
 	POUR i de 0 à longueur(tableau)-1
@@ -280,8 +281,8 @@ SOUS ALGORITHME chercherPrenom(tableau, element)
 	RETOURNER compteur
 FIN SOUS ALGORITHME
 
-chercherValeur(valeur,chercher)
-resultat : compteur = 3
+resultat <- chercherValeur(valeur,chercher)
+afficher resultat
 
 ----------------------------------------------------
 • Exercice 3
@@ -297,7 +298,7 @@ Soit le tableau trié : `[2, 5, 8, 12, 16, 23, 38, 45, 56, 67, 78]`
 	TANT QUE debut <= fin 
 		mileu <- (debut + fin) /2 
 			SI  tableau[milieu] = element 
-				RETOURNER milieu 		// retourne l'index : ici 0 
+				RETOURNER milieu 		
 			SINON SI tableau[milieu] < element
 				debut <- milieu + 1 
 			SINON
