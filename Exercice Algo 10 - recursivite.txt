@@ -7,12 +7,6 @@ Questions :
 3. Écrire l'algorithme complet
 4. Tracer l'exécution pour n=4
 
-
-Exemple : `somme(5) = 1 + 2 + 3 + 4 + 5 = 15`
-
-n+(n-1) 
-
-
 FONCTION somme(n) 
 	SI n =  1
 		RETOURNER 1
@@ -33,14 +27,33 @@ somme(4)
 = 4 + 6
 = 10
 
-somme(4) -> 
-attendre 4 + somme(4-1)  [3]
- ->
-attendre 4 + (3+ somme(3-1)) [2]
-->
-attendre 4 + (3+ (2+somme(2-1))) [1] // n=1 
-->
-4 + (3 + (2 + 1)) 
+--------------
+CORECTION 
+--------------
+
+1. Identifier le cas de base	 // permet d'arreter la réscursivité
+n=0 ou n=1 		// Les deux fonctionnes, vu que 0=0, strictement pareil 
+> Retourner 0 ou retourner 1 
+
+2. Indentifier le cas récursif
+n + somme(n-1) 		//On va diminuer au fur et a mesure / somme(n-1) appel la fonction
+
+3. Ecrire l'algo 
+FONCTION somme(n)
+	SI n=1				// Cas
+		RETOURNER 1		// de
+	FIN SI 				// base
+	RETOURNER n + somme(n-1)		// Traitement + récurtion /nombre <- n-1 / n + somme(nombre) 
+FIN FONCTION
+
+4. Traçage 
+somme(4) -> 4 est différent de 1 -> attend le résultat de 4 + somme(4-1) / somme(3) 
+somme(3) -> 3 est différent de 1 -> attend le résultat de 3 + somme(3-1) / somme(2)
+somme(2) -> 2 est différent de 1 -> attend le résultat de 2+somme(2-1) / somme(1)
+somme(1) -> 1 est égal à 1 -> retourne 1 -> on peut résoudre la file d'attente : 
+> Retourne 2 + 1 // resoud somme(2)
+> Retourne 3 + 2 + 1 // resoud somme(3)
+> Retourne 4 + 3 + 2 + 1 = 10 // resoud somme(4)
 
 
 -------------------------------------------------------
@@ -61,8 +74,6 @@ FONCTION puissance(x,n)
 	FIN SI
 FIN FONCTION
 
-
-
 puissance(2, 4)
 = 2 * puissance(2, 3)
 = 2 * (2 * puissance(2, 2))
@@ -73,3 +84,35 @@ puissance(2, 4)
 = 2 * (2 * 4)
 = 2 * 8
 = 16
+
+--------------
+CORECTION 
+--------------
+
+1. Identifier le cas de base
+n=0
+
+2. Indentifier le cas récursif
+x* puissance(x,n-1)
+
+3. Ecrire l'algo 
+FONCTION puissance(x,n)
+	SI n=0
+		RETOURNER 1
+	SINON SI 
+		RETOURNER x* puissance(x,n-1)
+	FIN SI
+FIN FONCTION
+
+4. Traçage pour x=2, n=4
+puissance(2,4) -> 4 est différent de 0 -> attend de 2*puissance(2,3)	//> Retourne 2*2*2*2*1 =16
+puissance(2,3) -> 3 est différent de  0 -> attend de 2*puissance(2,2)	//> Retourne 2*2*2*1 
+puissance(2,2) -> 2 est différent de 0 -> attend de 2*puissance(2,1)	//> Retourne 2*2*1 
+puissance(2,1) -> 1 est ddifférent de 0 -> attend de 2*puissance (2,0)  	//> Retourne 2*1 
+puissance(2,0) -> 0 est égal à 0 -> Retourner 1 -> redoudre la pile de calcul
+> Retourne 2*1 
+> Retourne 2*2*1 
+> Retourne 2*2*2*1 
+> Retourne 2*2*2*2*1 =16
+
+
