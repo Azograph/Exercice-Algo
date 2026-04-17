@@ -1,0 +1,394 @@
+
+• Cas un
+
+Algorithme VerifierDisponibilite
+Entrées :
+	nomRecherche (chaîne de caractères)
+	listeProduits (tableau de produits trié alphabétiquement)
+Sorties :
+	message indiquant disponibilité et quantité
+Début
+	debut ← 0
+	fin ← taille(listeProduits) - 1
+	trouve ← FAUX
+	Tant que debut ≤ fin ET trouve = FAUX faire
+ 	   milieu ← (debut + fin) DIV 2
+    	Si listeProduits[milieu].nom = nomRecherche alors
+        	trouve ← VRAI
+    	Sinon si nomRecherche < listeProduits[milieu].nom alors
+        	fin ← milieu - 1
+    	Sinon
+        	debut ← milieu + 1
+    	FinSi
+	FinTantQue
+ 
+	Si trouve = VRAI alors
+    	Si listeProduits[milieu].quantite > 0 alors
+        	Afficher "Produit disponible"
+        	Afficher "Quantité :", listeProduits[milieu].quantite
+    	Sinon
+        	Afficher "Produit en rupture de stock"
+    	FinSi
+	Sinon
+   	 Afficher "Produit introuvable"
+	FinSi
+
+ TRAÇAGE : 
+
+
+tab ← [[Amandes, 10] [Farine, 8], [Haricot rouge, 5], [Haricot vert, 3], [Lentilles corail, 0], [Riz basmati, 12], [Sucre, 6]]
+ 
+TRACAGE verifierDisponibilite(tab, aliment = ‘lentilles corail’) :
+debut = 0
+fin = 7 - 1  = 6
+trouve = faux
+Début tant que debut ≤ fin ET trouve = FAUX : 
+TOUR 1 : 
+debut <= fin, trouve = faux donc :
+milieu = (0 + 6 ) / 2 = 3
+On compare tab[milieu][0] = ‘Haricot vert’ avec aliment = ‘lentilles corail’
+On a ‘Haricot vert’ < ‘lentilles corail’ alphabétiquement, donc : 
+debut = milieu + 1 = 4
+
+TOUR 2 : 
+debut <= fin, trouve = faux donc : 
+milieu = (4 + 6) / 2 = 5
+On compare tab[5][0] = ‘riz basmati’ avec aliment = ‘lentilles corail’
+On a ‘Riz basmati’ > ‘lentilles corail’ alphabétiquement, donc : 
+fin = milieu - 1 = 4
+
+TOUR 3 : 
+debut = fin = 4, trouve = faux donc : 
+milieu = 8 / 2 = 4
+On compare tab[4][0] = ‘lentilles corail’ avec ‘lentilles corail’
+Ils sont égaux donc : trouve = vrai
+
+TOUR 4 : 
+debut = fin = 4, trouve = vrai donc on sort du TANT QUE
+ 
+On a tab[milieu][0] = 0 donc : 
+On affiche "Produit en rupture de stock"
+FIN DE L’ALGORITHME
+
+
+------------------------------------
+• Cas deux 
+
+Situation : Chaque médicament a une date de péremption. 
+Chaque matin, la pharmacie veut être alertée des médicaments périmés ou qui le seront dans moins de 30 jours. 
+1. Décrire l'algorithme qui parcourt le stock et identifie les médicaments à retirer ou surveiller. 
+2. Comment distinguer "déjà périmé" et "périme bientôt" dans votre pseudocode ? 
+3. Créer un tableau de 7 médicaments, accompagné de leur date de péremption, en suivant le modèle suivant :
+ [ [Amoxicilline, 03/04/2026] , [Ozempic, 07/07/2026] , [Paracétamol, 13/05/2026] ] 
+Effectuer le traçage de l’algorithme en prenant comme date du jour le 16/04/2026 
+
+FONCTION alertePeremption(tableau)
+    dateDuJour <- date actuelle de l'ordinateur
+
+    POUR i de 0 à longueur(tableau) -1
+	anneeMin <- année de tableau[i][1]
+	moisMin <- mois de tableau[i][1]
+	jourMin <- jour de tableau[i][1]
+	30Jours <- 30 derniers jours par rapport date actuelle de l'ordinateur
+	SI anneeMin + moisMin + jourMin > dateDuJour
+	    AFFICHER 'Déjà périmé' + tableau[i][0]
+	SINON SI anneeMin + moisMin + jourMin =< 30Jours 
+	    AFFICHER 'Périme bientôt' + tableau[i][0]
+	FIN SI	 
+    FIN POUR
+FIN FONCTION
+
+
+	
+------------------------------------	
+• Cas trois
+
+
+Situation : Un patient cherche un antidouleur. Plusieurs références sont disponibles. Il veut le moins cher qui soit en stock.
+1. Décrire l'algorithme qui parcourt les antidouleurs disponibles et trouve le prix minimum.
+2. Que faire si aucun antidouleur n'est en stock ?
+3. Créer un tableau de 7 médicaments, accompagné de leur quantité et prix, en suivant le
+modèle suivant :
+ [ [Amoxicilline, 5, 8.90] , [Ibuprofène, 3, 5.45] , [Paracétamol, 0, 1.90] ]
+
+ALGORITHME
+
+medicament	[ 
+		[Amoxicilline, 5, 8.90], 
+		[Ibuprofène, 3, 5.45], 
+		[Paracétamol, 0, 1.90],
+		[Tramadol, 4, 6.90],
+		[Codéine, 6, 5.50],
+		[Morphine , 1, 7.00],
+		[Oxycodone, 4, 3.90],
+		]
+
+medicament	[ // trier par prix
+		[Paracétamol, 0, 1.90],
+		[Oxycodone, 4, 3.90], 
+		[Ibuprofène, 3, 5.45], 
+		[Codéine, 6, 5.50],
+		[Tramadol, 4, 6.90],
+		[Morphine , 1, 7.00],
+		[Amoxicilline, 5, 8.90]  
+		]
+
+SOUS ALGORITHME medocTriPrix(tableau) 
+n <- longueur(tableau) 
+	POUR compteur de 0 à n-2 
+		IndexMini <- compteur
+		POUR i de compteur +1 à n -1
+			SI tableau[i][2] < tableau[IndexMini][2]
+				IndexMini <- i
+			FIN SI 
+		FIN POUR
+		SI indexMini !=compteur
+			temp <- tableau[compteur]
+			tableau[compteur]<- tableau[IndexMini]
+			tableau[IndexMini]<-temp
+		FIN SI
+	FIN POUR
+	POUR compteur de 0 à n-1 
+		SI tableau[i][1] <= 0 
+			prixMini<- tableau[i+1]
+		FIN SI 
+	FIN POUR
+	RETOURNER prixMini
+FIN SOUS ALGORITHME
+
+prixMini <-medocTriPrix(medicament)
+AFFICHER prixMini
+
+
+FIN ALGORITHME
+
+// Algo pour le fun, si le pharmacien veut voir toutes ses ruptures de stock
+SOUS ALGORITHME verificationStock(tableau)
+n <- longueur(tableau) 
+rupture <- [ ]
+	POUR i de 0 à n-2
+		SI tableau[i][1] <= 0 
+			AJOUTER tableau[i][1] à rupture		
+		FIN SI 
+	FIN POUR
+	RETOURNER rupture
+FIN SOUS ALGORITHME 
+
+
+Traçage
+
+tableau <- medicament	[ 
+	[Amoxicilline, 5, 8.90], [Ibuprofène, 3, 5.45], [Paracétamol, 0, 1.90],[Tramadol, 4, 6.90],
+	[Codéine, 6, 5.50],[Morphine , 1, 7.00],[Oxycodone, 4, 3.90],
+
+1er passage		]
+
+i = 0
+Chercher le minimum de index 0 à 6 : 
+indexMini commence à 0 (valeur 8.90)
+
+j=1 : 5.45 < 8.90 -> indexMini = 1
+j=2 : 1.90 < 5.45 -> indexMini = 2
+j=3 : 6.90 > 1.90 -> indexMini reste 2
+j=4 : 5.50 > 1.90 -> indexMini reste 2
+j=5 : 7.00 > 1.90 -> indexMini reste 2
+j=6 : 3.90 > 1.90 -> indexMini reste 2
+Minimum = 1.90 (index 2)
+Echanger tableau[0] et tableau[2]
+
+[Paracétamol, 0, 1.90], [Ibuprofène, 3, 5.45], [Amoxicilline, 5, 8.90],[Tramadol, 4, 6.90],
+[Codéine, 6, 5.50],[Morphine , 1, 7.00],[Oxycodone, 4, 3.90]
+
+2eme passage
+
+i = 1
+Chercher le minimum de index 1 à 6 :
+indexMini commence à 1 (valeur 5.45)
+
+j=1 : 8.90 > 5.45 -> indexMini = 1
+j=2 : 6.90 > 5.45 -> indexMini reste 1
+j=3 : 5.50 > 5.45 -> indexMini reste 1
+j=4 : 7.00 > 5.45 -> indexMini reste 1
+j=5 : 3.90 < 5.45 -> indexMini = 6
+Minimum = 3.90 (index 6)
+Echanger tableau[1] et tableau[6]
+
+[Paracétamol, 0, 1.90], [Oxycodone, 4, 3.90], [Amoxicilline, 5, 8.90],[Tramadol, 4, 6.90],
+[Codéine, 6, 5.50],[Morphine , 1, 7.00],[Ibuprofène, 3, 5.45]
+
+3eme passage 
+
+i = 2
+Chercher le minimum de index 2 à 6 :
+indexMini commence à 2 (valeur 8.90)
+
+j=1 : 6.90 < 8.90 -> indexMini = 3
+j=2 : 5.50 < 6.90 -> indexMini = 4
+j=3 : 7.00 > 5.50 -> indexMini reste 4 
+j=4 : 5.45 < 5.50 -> indexMini = 6
+Minimum = 5.45 (index 6)
+Echanger tableau[2] et tableau[6]
+
+[Paracétamol, 0, 1.90], [Oxycodone, 4, 3.90], [Ibuprofène, 3, 5.45],[Tramadol, 4, 6.90],
+[Codéine, 6, 5.50],[Morphine , 1, 7.00], [Amoxicilline, 5, 8.90]
+
+4eme passage
+
+i= 3
+Chercher le minimum de index 3 à 6 :
+indexMini commence à 3 (valeur 6.90)
+
+j=1 : 5.50 < 6.90 -> indexMini = 4
+j=2 : 7.00 > 6.90 -> indexMini = 4
+j=3 : 8.90 > 6.90 -> indexMini reste 4
+Minimum = 5.50 (index 4)
+Echanger tableau[3] et tableau[4]
+
+[Paracétamol, 0, 1.90], [Oxycodone, 4, 3.90], [Ibuprofène, 3, 5.45], [Codéine, 6, 5.50],
+[Tramadol, 4, 6.90],[Morphine , 1, 7.00], [Amoxicilline, 5, 8.90]
+
+5eme passage 
+
+i = 4 
+Chercher le minimum de index 4 à 6 :
+indexMini commence à 4 (valeur 6.90)
+
+j=1 : 7.00 > 6.90 -> indexMini reste 4
+j=2 : 8.90 > 6.90 -> indexMini reste 4
+Minimum = 6.90 (index 4)
+Pas d'échange
+
+[Paracétamol, 0, 1.90], [Oxycodone, 4, 3.90], [Ibuprofène, 3, 5.45], [Codéine, 6, 5.50],
+[Tramadol, 4, 6.90],[Morphine , 1, 7.00], [Amoxicilline, 5, 8.90]
+
+6eme passage 
+
+i = 5
+Chercher le minimum de index 5 à 6 :
+indexMini commence à 5 (valeur 7.00)
+
+j=1 : 8.90 > 7.00 -> indexMini = 5
+Minimum = 7.00 (index 5)
+Pas d'échange
+
+[Paracétamol, 0, 1.90], [Oxycodone, 4, 3.90], [Ibuprofène, 3, 5.45], [Codéine, 6, 5.50],
+[Tramadol, 4, 6.90],[Morphine , 1, 7.00], [Amoxicilline, 5, 8.90]
+
+FIN de traçage 
+
+
+
+
+------------------------------------	
+• Cas quatre
+
+DEBUT ALGORITHME
+
+FONCTION triPeremption(tableau)
+	Pour x allant de 0 à taille tableau – 2
+	indexMin = x			   //0
+	anneeMin <- année de tableau[x][1] // 2026
+	moisMin <- mois de tableau[x][1]   // 04
+	jourMin <- jour de tableau[x][1]  // 03
+		Pour i allant de x + 1 à taille tableau – 1
+			annee <- année de tableau[i][1] // 2026
+			mois <- mois de tableau[i][1]  //07
+			jour <- jour de tableau[i][1] //07
+				SI anneeMin > annee
+					indexMin <- i 
+				SINON SI anneeMin = annee 
+					SI moisMin > mois  
+						indexMin <- i  
+					SINON SI moisMin = mois 
+						SI jourMin > jour
+							indexMin <- i 
+						FIN SI
+					FIN SI
+				FIN SI
+		FIN POUR
+	SI indexMin != x
+		temp <- tableau[x]
+		tableau[x] <- tableau[indexMin]
+		tableau[indexMin] <- temp
+	FIN SI
+	FIN POUR
+	RETOURNER tableau
+FIN FONCTION
+
+
+Medicament	[ 
+	[Amoxicilline, 03/04/2026] , 
+	[Ozempic, 07/07/2026] , 
+	[Paracétamol, 13/05/2026], 
+	[Alprazolam, 02/05/2026], 
+	[Paroxétine, 12/06/2026], 
+	[Abilify, 27/08/2027], 
+	[Forxiga, 01/12/2027] 
+	]
+
+Tri <- triPeremption(medicament)
+
+FIN ALGORITHME
+
+TRACAGE : 
+Soit le tableau medicament
+
+Passage 1 de x : 
+x=0 // IndexMini = x = 0 
+	Passage 1 de i 
+	i = 1
+	anneeMin > annee : 2026 est égale à 2026 donc indexMini = x
+	moisMin > mois : 04 n'est pas supérieur à 07 donc indexMini = x
+
+	Passage 2 
+	i = 2
+	anneeMin > annee : 2026 est égale à 2026 donc indexMini = x
+	moisMin > mois : 04 n'est pas supérieur à 13 donc indexMini = x
+
+	Passage 3
+	i = 3
+	anneeMin > annee : 2026 est égale à 2026 donc indexMini = x
+	moisMin > mois : 04 n'est pas supérieur à 05 donc indexMini = x
+	
+	Passage 4 
+	i = 4
+	anneeMin > annee : 2026 est égale à 2026 donc indexMini = x
+	moisMin > mois : 04 n'est pas supérieur à 06 donc indexMini = x
+	
+	Passage 5 
+	i = 5
+	anneeMin > annee : 2026 n'est pas supérieur à 2027 donc indexMini = x
+
+	Passage 6 
+	i = 6
+	anneeMin > annee : 2026 n'est pas supérieur à 2027 donc indexMini = x
+
+Passage 2 de x : 
+x=1 // IndexMini = x = 1 
+	
+	Passage 1 
+	i = 2
+	anneeMin > annee : 2026 est égale à 2026 donc indexMini = x
+	moisMin > mois : 07 supérieur à 05 donc indexMini = i
+
+	Passage 2
+	i = 3
+	anneeMin > annee : 2026 est égale à 2026 donc indexMini = x
+	moisMin > mois : 07 n'est pas supérieur à 05 donc indexMini = x
+	
+	Passage 3
+	i = 4
+	anneeMin > annee : 2026 est égale à 2026 donc indexMini = x
+	moisMin > mois : 07 n'est pas supérieur à 06 donc indexMini = x
+	
+	Passage 4
+	i = 5
+	anneeMin > annee : 2026 n'est pas supérieur à 2027 donc indexMini = x
+
+	Passage 5
+	i = 6
+	anneeMin > annee : 2026 n'est pas supérieur à 2027 donc indexMini = x
+
+
+
+

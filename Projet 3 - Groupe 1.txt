@@ -1,0 +1,308 @@
+
+• Cas un
+
+
+ALGORITHME ReserverPlaces
+
+CONSTANTES
+    CAPACITE_SALLE ← 80
+
+DEBUT
+    placesReservees   ← 67
+    placesdemandées   ← 3
+
+    placesDisponibles ← CAPACITE_SALLE - placesReservees
+
+    SI placesdemandées <= placesDisponibles ALORS
+        placesReservees ← placesReservees + placesdemandées
+        AFFICHER "Réservation confirmée. Places réservées : ", placesReservees
+    SINON
+        AFFICHER "Réservation impossible. Places disponibles : ", placesDisponibles
+    FIN SI
+FIN
+
+Traçage: 
+Capacité de la salle ← 80
+→ stocke 80 en mémoire
+places réservees ← 67
+→ stocke 67 en mémoire
+placesDisponibles ← capacité salle - places réservés
+→ calcule 80 - 67 = 13, stocke 13
+AFFICHER
+→ affiche "places disponible : 13"
+On compare 3 et 13 
+On remarque que 3 est inférieur à 13  donc
+On Affiche reservation confirmée
+
+------------------------------------
+• Cas deux 
+
+
+ALGORITHME
+
+film[ 
+	[Vermines, 356], 
+	[Nosferatu, 312], 
+	[Minecraft, 642], 
+	[Mario, 642] 
+	[Dune, 579, 150] 
+	[Gladiator, 460, 150]
+	[Gladiator deux, 60, 150]
+	]
+
+SOUS ALGORITHME trouverMax(tableau)
+max <- 0
+    POUR i de 0 à longueur(tableau)-1
+        SI tableau[i][1] > max
+            max <- tableau[i][1]
+            RETOURNER max
+        FIN SI 
+    FIN POUR
+FIN SOUS ALGORITHME
+
+
+
+SOUS ALGORITHME stockerMax(tableau, max) 
+Stockage <- [ ]
+    POUR i de 0 à longueur(tableau)-1
+        SI tableau[i][1]== max
+             AJOUTER tableau[i] à stockage 
+        FIN SI
+    FIN POUR
+    RETOURNER stokage
+FIN SOUS ALGORITHME 
+
+
+Max <-- trouverMax(cinema)
+Liste  <-- stockerMax(cinema, max)
+Afficher liste
+
+FIN ALGORITHME
+
+TRACAGE
+
+trouverMax(cinema)
+(tableau[0][1]) 356 est supérieur à 0 donc max <- 356 
+(tableau[1][1]) 312 est inférieur à 356 donc max ne change pas
+(tableau[2][1]) 642 est supérieur à 356 donc max <- 642
+(tableau[3][1]) 642 est égale à 642 donc max ne change pas
+(tableau[4][1]) 579 est inférieur à 356 donc max ne change pas
+(tableau[5][1]) 460 est inférieur à 356 donc max ne change pas
+(tableau[6][1]) 60 est inférieur à 356 donc max ne change pas
+Retourner max = 642
+Max<-trouverMax(cinema)
+stockermax(cinema, max)
+(tableau[0][1]) 356 n'est pas égale à 642 donc tableau[0] n'est pas stocké  
+(tableau[1][1]) 312 n'est pas égale à 642 donc tableau[1] n'est pas stocké  
+(tableau[2][1]) 642 est égale à 642 donc tableau[2] est stocké 
+(tableau[3][1]) 642 est égale à 642 donc tableau[3] est stocké 
+(tableau[4][1]) 579 n'est pas égale à 642 donc tableau[4] n'est pas stocké  
+(tableau[5][1]) 460 n'est pas égale à 642 donc tableau[5] n'est pas stocké  
+(tableau[6][1]) 60 n'est pas égale à 642 donc tableau[6] n'est pas stocké  
+Retourne stockage =  [Minecraft, 642], [Mario, 642] //tableau[2], tableau[3] 
+Liste <- stockage
+Afficher Liste
+
+	
+------------------------------------	
+• Cas trois
+
+SOUS ALGORITHME triSelection(tableau) 
+n <- longueur(tableau) 
+	POUR compteur de 0 à n-2 
+		IndexMini <- compteur
+		POUR i de compteur +1 à n -1
+			SI tableau[i][0] < tableau[IndexMini][0]
+				IndexMini <- i
+			FIN SI 
+		FIN POUR
+		SI indexMini !=compteur
+			temp <- tableau[compteur]
+			tableau[compteur]<- tableau[IndexMini]
+			tableau[IndexMini]<-temp
+		FIN SI
+	FIN POUR
+FIN SOUS ALGORITHME
+
+TRACAGE 
+
+1er passage 
+
+tableau <- [ 	
+	[1730, Vermines], 
+	[1000, Nosferatu], 
+	[2000, Minecraft], 
+	[1330, Mario]
+	[2200, Gladiator]
+	[2230, The Truman Show]
+	[2300, Jeux d\'enfants] 
+	]
+i = 0
+
+Chercher le minimum de index 0 à 6 : 
+indexMin commence à 0 (valeur 1730)
+
+j=1 : 1000 < 1730 -> indexMin = 1
+j=2 : 2000 > 1000 -> indexMin reste 1
+j=3 : 1330 > 1000 -> indexMin reste 1
+j=4 : 2200 > 1000 -> indexMin reste 1
+j=5 : 2230 > 1000 -> indexMin reste 1
+j=6 : 2300 > 1000 -> indexMin reste 1
+
+minimum = 1000 (index 1)
+Echanger tableau[0] et tableau[1]
+[1000, 1730, 2000, 1330, 2200, 2230, 2300]
+
+2eme passage
+
+i = 1
+
+Chercher le minimum de index 1 à 6 :
+indexMin commence à 1 (valeur 1730)
+
+j=1 : 2000 > 1730 -> indexMin = 2
+j=2 : 1330 < 1730 -> indexMin = 3
+j=3 : 2200 > 1330 -> indexMin reste 3
+j=4 : 2230 > 1330 -> indexMin reste 3
+j=5 : 2300 > 1330 -> indexMin reste 3
+
+minimum = 1330 (index 3)
+Echanger tableau[1] et tableau[3]
+[1000, 1330, 2000, 1730, 2200, 2230, 2300]
+
+3eme passage
+
+i = 2
+
+Chercher le minimum de index 2 à 6 :
+indexMin commence à 2 (valeur 2000)
+
+j=1 : 1730 < 2000 -> indexMin = 3
+j=2 : 2200 > 1730 -> indexMin reste 3
+j=3 : 2230 < 1730 -> indexMin reste 3
+j=4 : 2300 < 1730 -> indexMin reste 3
+
+minimum = 1730 (index 3)
+Echanger tableau[2] et tableau[3]
+[1000, 1330, 1730, 2000, 2200, 2230, 2300]
+
+4eme passage 
+
+i = 3
+
+Chercher le minimum de index 3 à 6 : 
+indexMin commence à 3 (valeur 2000)
+
+j=1 : 2200 > 2000 -> indexMin = 3
+j=2 : 2230 > 2000 -> indexMin reste 3
+j=3 : 2300 > 2000 -> indexMin reste 3
+
+minimum = 2000 (index 3)
+Pas d'échange
+[1000, 1330, 1730, 2000, 2200, 2230, 2300]
+
+5eme passage 
+
+i = 4
+
+Chercher le minimum de index 4 à 6 : 
+indexMin commence à 4 (valeur 2200)
+
+j=1 : 2230 > 2200 -> indexMin = 4
+j=2 : 2300 > 2200 -> indexMin reste 4
+
+minimum = 2200 (index 4)
+Pas d'échange
+[1000, 1330, 1730, 2000, 2200, 2230, 2300]
+
+6eme passage 
+
+i = 5
+
+Chercher le minimum de index 5 à 6 : 
+indexMin commence à 5 (valeur 2230)
+
+j=1 : 2300 > 2230 -> indexMin = 5
+
+minimum = 2230 (index 5)
+Pas d'échange
+[1000, 1330, 1730, 2000, 2200, 2230, 2300]
+
+FIN DE TRACAGE
+
+------------------------------------	
+• Cas quatre
+
+cinema = [ 
+	[Vermines, 356, 80],
+	[Nosferatu, 312, 50], 
+	[Minecraft, 642, 120], 
+	[Mario, 642, 150] 
+	[Dune, 879, 150] 
+	[Gladiator, 760, 150]
+	[Gladiator deux, 60, 150]
+]
+// nombreSeance <- 7
+
+SOUS ALGORITHME moinsDe20(tableau, nombreSeance)
+     liste20  [ ]
+    POUR i de 0 à longueur(tableau)-1
+        nombreEntreeJ  <- tableau[i][1] / nombreSeance
+         resultat <- tableau[i][2] * 0,20 
+        SI resultat > nombreEntreeJ 
+liste20 = +tableau[i]
+         FIN SI 
+    FIN POUR
+AFFICHER liste20	
+FIN SOUS ALGORITHME
+
+defnirTauxR(cinema)
+
+Traçage pour cinema = [ 
+	[Vermines, 356, 80],
+	[Nosferatu, 312, 50], 
+	[Minecraft, 642, 120], 
+	[Mario, 642, 150] 
+	[Dune, 879, 150] 
+	[Gladiator, 760, 150]
+	[Gladiator deux, 60, 150]
+]
+
+moinsDe20(cinema, 7)
+Début du POUR
+Pour i = 0
+nombreEntreeJ = 356 / 7 = 50,85
+resultat = 80*0.2 = 16
+On compare resultat et nombreEntreeJ, resultat < nombreEntreeJ donc on ne fait rien
+Pour i = 1
+nombreEntreeJ = 312 / 7 = 44.57
+resultat = 50*0.2 = 10
+On compare resultat et nombreEntreeJ, resultat < nombreEntreeJ donc on ne fait rien
+Pour i = 2
+nombreEntreeJ = 642 / 7 = 91.71
+resultat = 120*0.2 = 24
+On compare resultat et nombreEntreeJ, resultat < nombreEntreeJ donc on ne fait rien
+Pour i = 3
+nombreEntreeJ = 642 / 7 = 91.71
+resultat = 150*0.2 = 30
+On compare resultat et nombreEntreeJ, resultat < nombreEntreeJ donc on ne fait rien
+Pour i = 4
+nombreEntreeJ = 879 / 7 = 125.57
+resultat = 150*0.2 = 30
+On compare resultat et nombreEntreeJ, resultat < nombreEntreeJ donc on ne fait rien
+Pour i = 5
+nombreEntreeJ = 760 / 7 = 108.57
+resultat = 150*0.2 = 30
+On compare resultat et nombreEntreeJ, resultat < nombreEntreeJ donc on ne fait rien
+Pour i = 6
+nombreEntreeJ = 60 / 7 = 8.57
+resultat = 150*0.2 = 30
+On compare resultat et nombreEntreeJ, resultat > nombreEntreeJ
+Donc on fait liste20 =[ ] + [ Gladiator deux, 60, 150] = [ [Gladiator deux, 60, 150] ]
+Fin du POUR
+On affiche liste20 : « [ Gladiator deux, 60, 150] »
+
+
+
+
+
